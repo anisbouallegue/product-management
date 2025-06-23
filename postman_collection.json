@@ -1,0 +1,936 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "name": "Product Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\",\n  \"name\": \"anis bouallag\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["auth", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/profile",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["auth", "profile"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refreshToken\": \"{{refresh_token}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/refresh",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["auth", "refresh"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/logout",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["auth", "logout"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Headphone\",\n  \"description\": \"High quality wireless headphone\",\n  \"category\": \"Electronics\",\n  \"subcategory\": \"Audio\",\n  \"price\": 100,\n  \"discount\": 20,\n  \"stock\": 100,\n  \"images\": [\"https://example.com/image1.jpg\", \"https://example.com/image2.jpg\"],\n  \"variants\": [\n    {\n      \"name\": \"Black\",\n      \"price\": 300,\n      \"stock\": 50\n    },\n    {\n      \"name\": \"White\",\n      \"price\": 300,\n      \"stock\": 50\n    }\n  ],\n  \"tags\": [\"wireless\", \"noise cancelling\", \"premium\"]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Product Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Headphones (Updated)\",\n  \"price\": 370\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Upload Product Images",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "files",
+                  "type": "file",
+                  "src": "/path/to/image.jpg"
+                },
+                {
+                  "key": "files",
+                  "type": "file",
+                  "src": "/path/to/image2.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/gallery",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "gallery"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Product Images",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/gallery",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "gallery"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Image",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/gallery/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "gallery", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Upload 3D Model",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "/path/to/model.glb"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/3dmodel",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "3dmodel"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get 3D Model",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/3dmodel",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "3dmodel"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Variants",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/variants",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "variants"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Variant",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Blue\",\n  \"price\": 300,\n  \"stock\": 30\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/variants",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "variants"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Variant",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Blue (Updated)\",\n  \"price\": 250\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/variants/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "variants", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Variant",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/variants/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "variants", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Stock",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"stock\": 150\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/stock",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "stock"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Stock History",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/stock/history",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "stock", "history"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Tag",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"new-tag\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/tag",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "tag"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Tag",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/tag/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "tag", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Promotion",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"promoted\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/promotion",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "promotion"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update SEO",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"slug\": \"headphones updated\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/seo",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "seo"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "item": [
+        {
+          "name": "Get Product Reviews",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/reviews",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "reviews"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Review",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": 5,\n  \"comment\": \"Excellent product\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/reviews",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "reviews"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Review",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": 4,\n  \"comment\": \"Great\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/reviews/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "reviews", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Review",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/reviews/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "reviews", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Rating Breakdown",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/products/1/reviews/rating-breakdown",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["products", "1", "reviews", "rating-breakdown"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "access_token",
+      "value": ""
+    },
+    {
+      "key": "refresh_token",
+      "value": ""
+    }
+  ]
+}
